@@ -6,23 +6,23 @@ const navItems = [
     { label: "Home", href: "/" },
     {
         label: "Destinations",
-        href: "null",
+        href: "#",
         children: [
-            { label: "India Tours", href: "null" },
-            { label: "International", href: "null" },
-            { label: "Himalayan Treks", href: "null" },
-            { label: "Pilgrimage Yatras", href: "null" },
-            { label: "Beach Escapes", href: "null" },
+            { label: "India Tours", href: "#" },
+            { label: "International", href: "#" },
+            { label: "Himalayan Treks", href: "#" },
+            { label: "Pilgrimage Yatras", href: "#" },
+            { label: "Beach Escapes", href: "#" },
         ],
     },
     {
         label: "Packages",
-        href: "null",
+        href: "#",
         children: [
-            { label: "Honeymoon Packages", href: "null" },
-            { label: "Family Tours", href: "null" },
-            { label: "Group Travel", href: "null" },
-            { label: "Corporate Trips", href: "null" },
+            { label: "Honeymoon Packages", href: "#" },
+            { label: "Family Tours", href: "#" },
+            { label: "Group Travel", href: "#" },
+            { label: "Corporate Trips", href: "#" },
         ],
     },
     { label: "Services", href: "/services" },
@@ -58,6 +58,7 @@ const Navbar = () => {
                             <Link
                                 to={item.href}
                                 // onClick={() => setActiveLink(item.label)}
+                                onClick={() => setMobileOpen(false)}
                                 className={`flex items-center gap-1.5 px-4 h-full text-[13px] font-semibold tracking-widest uppercase transition-colors duration-200 border-b-[2.5px] ${activeLink === item.label
                                     ? "text-amber-600 border-amber-500"
                                     : "text-teal-800 border-transparent hover:text-amber-600 hover:border-amber-500"
@@ -85,6 +86,7 @@ const Navbar = () => {
                                     {item.children.map((child, i) => (
                                         <Link
                                             to={child.href}
+                                            onClick={() => setMobileOpen(false)}
                                             className={`block px-4 py-2.5 text-[12px] font-semibold tracking-[0.05em] uppercase text-teal-800 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-150 ${i > 0 ? "border-t border-teal-900/8" : ""
                                                 }`}
                                         >
@@ -135,6 +137,7 @@ const Navbar = () => {
                             <Link
                                 to={item.href}
                                 // onClick={() => setActiveLink(item.label)}
+                                onClick={() => setMobileOpen(false)}
                                 className={`block py-2.5 text-[13px] font-semibold tracking-widest uppercase transition-colors ${activeLink === item.label ? "text-amber-600" : "text-teal-800 hover:text-amber-600"
                                     }`}
                             >
@@ -146,6 +149,7 @@ const Navbar = () => {
                                         <Link
                                             key={child.label}
                                             to={child.href}
+                                            onClick={() => setMobileOpen(false)}
                                             className="block py-1.5 text-[12px] font-medium tracking-[0.05em] uppercase text-teal-700 hover:text-amber-600 transition-colors"
                                         >
                                             {child.label}
